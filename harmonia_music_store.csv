@@ -1,0 +1,26 @@
+﻿Produto;Categoria;Preço;Quantidade;Região;Mês;Receita Total
+Guitarra;Cordas;1500;12;Sul;Janeiro;18000
+Teclado;Teclas;2000;8;Sudeste;Janeiro;16000
+Bateria;Percussão;3500;5;Nordeste;Janeiro;17500
+Violino;Cordas;1200;10;Sul;Fevereiro;12000
+Cajón;Percussão;800;15;Norte;Fevereiro;12000
+Piano;Teclas;5000;3;Sudeste;Março;15000
+Guitarra;Cordas;1500;9;Sul;Março;13500
+Teclado;Teclas;2000;6;Nordeste;Abril;12000
+Bateria;Percussão;3500;4;Norte;Abril;14000
+Violino;Cordas;1200;7;Sudeste;Maio;8400
+Cajón;Percussão;800;12;Sul;Maio;9600
+Piano;Teclas;5000;2;Nordeste;Junho;10000
+Guitarra;Cordas;1500;11;Norte;Junho;16500
+Teclado;Teclas;2000;10;Sudeste;Julho;20000
+Bateria;Percussão;3500;6;Sul;Julho;21000
+Violino;Cordas;1200;8;Nordeste;Agosto;9600
+Cajón;Percussão;800;14;Sudeste;Agosto;11200
+Piano;Teclas;5000;4;Norte;Setembro;20000
+Guitarra;Cordas;1500;7;Sul;Setembro;10500
+Teclado;Teclas;2000;5;Nordeste;Outubro;10000
+Bateria;Percussão;3500;3;Sudeste;Outubro;10500
+Violino;Cordas;1200;9;Norte;Novembro;10800
+Cajón;Percussão;800;10;Sul;Novembro;8000
+Piano;Teclas;5000;2;Sudeste;Dezembro;10000
+Guitarra;Cordas;1500;8;Nordeste;Dezembro;12000
