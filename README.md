@@ -64,6 +64,37 @@ Prévia dos dados tratados:
 | Violão  | Janeiro   | 10         | 5000           | 500.0         |
 | Piano   | Fevereiro | 5          | 15000          | 3000.0        |
 
+## 🖼️ Dashboard Básico em Power BI
+
+### Medidas DAX
+- **Faturamento (Receita Total)**
+  `Receita Total = SUM(Sheet1[Receita Total])`
+
+- **Ticket Médio**
+  `Ticket Médio = DIVIDE(Sheet1[Receita Total], Sheet1[Total de Vendas])`
+
+- **Total de Vendas**
+  `Total de Vendas = SUM(Sheet1[Quantidade])`
+
+### Visualizações
+- Cards: Faturamento, Ticket Médio, Total de Vendas
+- Gráfico de Linhas: Variação da Receita ao longo dos meses (ordenados cronologicamente)
+
+### Ajustes no Power Query
+- Criada tabela auxiliar `MesesMap` com colunas `Mês` e `Mês_Num`
+- Merge realizado com `Sheet1` para trazer `Mês_Num`
+- Definido `Sheet1[Mês_Num]` como classificado por ordem crescente
+- Definido `Sheet1[Mês]` como classificado por `Sheet1[Mês_Num]`
+
+### Evidências
+![Dashboard com cards e gráfico](docs/dashboard_overview.png)
+![Merge no Power Query](docs/powerquery_merge.png)
+
+### Como reproduzir
+1. Abra o arquivo `.pbix` em Power BI
+2. Verifique se `Sheet1[Mês]` está classificada por `Sheet1[Mês_Num]`
+3. Explore os cards e o gráfico de variação da receita
+
 ## ✨ Autor 
 - Paulo V. R. Souza
 - LinkedIn: paulovrsouza
