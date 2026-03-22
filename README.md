@@ -89,12 +89,12 @@ Prévia dos dados tratados:
 - Gráfico de Linhas: Variação da Receita ao longo dos meses (ordenados cronologicamente)
 
 ### Ajustes no Power Query
-![Merge no Power Query](docs/powerquery_merge.png)
-![Tabela Auxiliar MesesMap](docs/MesesMap_tabela.png)
-- Criada tabela auxiliar `MesesMap` com colunas `Mês` e `Mês_Num`
-- Merge realizado com `Sheet1` para trazer `Mês_Num`
-- Definido `Sheet1[Mês_Num]` como classificado por ordem crescente
-- Definido `Sheet1[Mês]` como classificado por `Sheet1[Mês_Num]`
+- **MesesMap:** tabela auxiliar com as colunas `Mês` e `Mês_Num`.
+- **Merge:** merge realizado com `Sheet1` para trazer `Mês_Num`.
+- **Ordenação:** `Sheet1[Mês_Num]` definido como ordenação para `Sheet1[Mês]`, e `Sheet1[Mês_Num]` classificado por ordem crescente.
+- **Evidências**:
+	![Merge no Power Query](docs/powerquery_merge.png)
+	![Tabela Auxiliar MesesMap](docs/MesesMap_tabela.png)
 
 ### Como reproduzir
 1. Abra o arquivo `.pbix` em Power BI
@@ -103,7 +103,7 @@ Prévia dos dados tratados:
 
 ---
 
-# Projeto Power BI - DAX Avançado Versão 1
+# 📈 Projeto Power BI - DAX Avançado Versão 1
 
 
 ## Descrição
@@ -118,8 +118,8 @@ Projeto de portifólio demonstrando medidas DAX para análise de receita por pro
 - Power Query MesesMap e Merge: ![](docs/MesesMap_tabela.png); ![](docs/powerquery_merge.png)
 - Imagem com as colunas `Produto`, `Receita Produto` e `% Receita Produto`: 
 ![Dashboard com cards e gráfico](docs/percent_total.png)
-- Rank por Produto: ![](docs/rank-produto.png)
-- Receita por Ticket Bucket: ![](docs/ticket-bucket.png)
+- Rank por Produto: ![](docs/rank_produto.png)
+- Dashboard de Receita por Ticket Bucket: ![](docs/ticket_bucket.png)
 
 ### Medidas DAX Implementadas 
  **Receita Total:** `Receita Total = SUM(Sheet1[Receita Total])`  
@@ -134,10 +134,25 @@ Projeto de portifólio demonstrando medidas DAX para análise de receita por pro
 **- Responde:** impacto e participação de cada produto na receita total.  
 **- Como validar:** soma das participações ≈ 100%. Ver `docs/percent-total_with_card.png`.
 
-**Rank Produto Receita:** `% Rank Produto Receita = RANKX(VALUES('Sheet1'[Produto]), [Receita Produto Medida], , DESC, DENSE)`  
+**Rank Produto Receita (Medida):** `Rank Produto Receita = RANKX(ALL('Sheet1'[Produto]), [Receita Produto Medida],, DESC, DENSE)`  
 **- Responde:** posição de cada produto por receita (1 = maior receita).  
-**- Como validar:** soma das participações ≈ 100%. Ver docs/rank-total.png.
+**- Como validar:** soma das participações ≈ 100%. Ver `docs/rank_total.png`.
 
-**Ticket Bucket:** 
+**Ticket Bucket (Coluna):** `Ticket Bucket = SWITCH(TRUE(), 'Sheet1'[Ticket Médio] <= 1500, "Baixo", 'Sheet1'[Ticket Médio] <= 3000, "Médio", "Alto")`  
+**Ticket Bucket (Coluna):** `Receita por Bucket = CALCULATE([Soma Receita Total])`  
+**- Responde:** distribuição da receita por faixa de ticket.
+**- Como validar:** somar receitas por bucket e comparar com `Receita Total`. Ver `ticket_bucket.png`.
 
+---
 
+# 📌 Conclusão
+- O projeto demonstrou a construção de um pipeline ETL simples e funcional.
+- Foram criadas medidas DAX e visuais em Power BI que permitem analisar receita, ticket médio e participação por bucket.
+- A organização em etapas claras (Extract, Transform, Load) facilita a reprodutibilidade e serve como base para projetos futuros.
+
+---
+
+# 🔮 Próximos Passos
+- **Melhorias de qualidade de dados:** tratar outliers, preencher valores faltantes, validar regras de negócio.
+- **Novos indicadores:** métricas que agreguem valor (margem, churn, LTV) quando houver dados.
+- **Validação e testes:** criar testes automatizados para garantir que transformações não quebrem.
